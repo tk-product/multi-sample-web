@@ -1,0 +1,5 @@
+rootProject.name = 'multi-sample-web'
+
+include 'multi-sample-common'
+project(':multi-sample-common').projectDir = file('../multi-sample-common')
+

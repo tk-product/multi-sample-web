@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: web
+  datasource:
+    url: jdbc:mysql://localhost:3306/multi_sample_db?useSSL=false&serverTimezone=Asia/Tokyo
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update       # create / update / validate / none
+    show-sql: true            # SQL?????
+    properties:
+      hibernate:
+        format_sql: true
+  thymeleaf:
+    cache: false               # ????false?????????
