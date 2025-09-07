@@ -1,7 +1,9 @@
 package com.example.web.app.xx001.controller;
 
+import com.example.web.app.common.session.UserSession;
 import com.example.web.app.xx001.form.SearchForm;
 import com.example.web.app.xx001.service.SearchService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +17,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SearchController {
 
+    private final HttpSession httpSession;
+
     private final SearchService searchService;
 
     @GetMapping("/search")
-    public String showSearch(@ModelAttribute SearchForm form) {
+    public String searchPage(Model model) {
+        UserSession user = (UserSession) httpSession.getAttribute("USER_SESSION");
+        model.addAttribute("user", user);
+
+        // Set<String> → カンマ区切り文字列に変換して渡す
+        if (user != null && user.getRoles() != null) {
+            String rolesStr = String.join(", ", user.getRoles());
+            model.addAttribute("rolesStr", rolesStr);
+        } else {
+            model.addAttribute("rolesStr", "");
+        }
+
+        model.addAttribute("searchForm", new Object());
         return "search";
     }
 

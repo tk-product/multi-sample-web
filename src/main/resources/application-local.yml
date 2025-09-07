@@ -1,0 +1,4 @@
+app:
+  login:
+    local-url: /local-login
+    external-url: https://dummy-auth.local/login

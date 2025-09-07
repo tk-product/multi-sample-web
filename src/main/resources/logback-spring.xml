@@ -22,7 +22,7 @@
     <!-- ExceptionHandlerExceptionResolverのWARNログが出るのでOFFにする -->
     <logger name="org.springframework.web.servlet.mvc" level="OFF"/>
     <!-- 自作パッケージは DEBUG レベルで出力 -->
-    <logger name="com.example.recipe" level="DEBUG"/>
+    <logger name="com.example.web" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
